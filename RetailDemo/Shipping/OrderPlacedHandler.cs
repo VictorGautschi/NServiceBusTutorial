@@ -14,6 +14,8 @@ namespace Shipping
         {
             log.Info($"Received OrderPlaced, OrderId = {message.OrderId} - Charging credit card...");
 
+            // This is normally where some business logic would occur
+
             return Task.CompletedTask;
         }
     }

@@ -14,6 +14,8 @@ namespace Billing
         {
             log.Info($"Received OrderPlaced, OrderId = {message.OrderId} - Charging credit card...");
 
+            // This is normally where some business logic would occur
+
             // Create event
             var orderBilled = new OrderBilled
             {
