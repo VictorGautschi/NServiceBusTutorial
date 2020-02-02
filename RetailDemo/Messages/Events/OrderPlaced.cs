@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Messages.Commands  // command is a type of message
+namespace Messages
 {
-    public class PlaceOrder : ICommand
+    public class OrderPlaced : IEvent
     {
         public string OrderId { get; set; }
     }

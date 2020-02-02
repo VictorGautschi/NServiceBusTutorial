@@ -2,9 +2,6 @@
 using NServiceBus;
 using NServiceBus.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ClientUI
@@ -39,6 +36,11 @@ namespace ClientUI
              * dependencies. All other transports are provided using different 
              * NuGet packages. */
             var transport = endpointConfiguration.UseTransport<LearningTransport>();
+
+            /* This establishes that commands of type PlaceOrder should be sent to 
+             * the Sales endpoint using transport. */
+            var routing = transport.Routing();
+            routing.RouteToEndpoint(typeof(PlaceOrder), "Sales");
 
             /* start the endpoint, and await input */
             var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
@@ -76,7 +78,7 @@ namespace ClientUI
 
                         // Send the command to the local endpoint
                         log.Info($"Sending PlaceOrder command, OrderId = {command.OrderId}");
-                        await endpointInstance.SendLocal(command).ConfigureAwait(false);
+                        await endpointInstance.Send(command).ConfigureAwait(false);
 
                         break;
 

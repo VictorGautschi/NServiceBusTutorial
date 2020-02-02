@@ -49,10 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoSomething.cs" />
-    <Compile Include="DoSomethingComplex.cs" />
-    <Compile Include="DoSomethingHandler.cs" />
-    <Compile Include="PlaceOrderHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
